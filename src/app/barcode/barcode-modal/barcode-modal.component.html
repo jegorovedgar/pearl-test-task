@@ -1,0 +1,28 @@
+<zxing-scanner (scanSuccess)="scanSuccess($event)" [formats]="formatsEnabled"></zxing-scanner>
+<ng-container *ngIf="{
+  scanResult: scanResult$ | async,
+  product: product$ | async,
+  productImage: productImage$ | async,
+  isLoading: isLoading$ | async,
+  hasError: hasError$ | async
+} as observables">
+  <ng-container *ngIf="observables.isLoading">
+    Searching for: "{{observables.scanResult}}" product code
+  </ng-container>
+  <ng-container *ngIf="observables.hasError">
+    Product with code "{{observables.scanResult}}" not found
+  </ng-container>
+  <ng-container *ngIf="observables.product">
+    <a [routerLink]="observables.product| cxProductUrl" cxModal="close">
+      <cx-media
+        *ngIf="observables.productImage"
+        [container]="observables.productImage"
+        format="thumbnail"
+        role="presentation"
+      ></cx-media>
+      <span class="name" [innerHTML]="observables.product.nameHtml"></span>
+      <span class="price">{{ observables.product.price?.formattedValue }}</span>
+    </a>
+  </ng-container>
+</ng-container>
+

@@ -5,6 +5,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { AppRoutingModule } from "@spartacus/storefront";
 import { AppComponent } from './app.component';
+import { SearchBoxModule } from "./search-box/search-box.module";
 import { SpartacusModule } from './spartacus/spartacus.module';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SpartacusModule } from './spartacus/spartacus.module';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     SpartacusModule,
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    SearchBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

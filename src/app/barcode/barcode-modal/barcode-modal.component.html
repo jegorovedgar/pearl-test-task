@@ -1,0 +1,44 @@
+<h2>Barcode Scanner</h2>
+<zxing-scanner (scanSuccess)="scanSuccess($event)" [formats]="formatsEnabled"></zxing-scanner>
+<ng-container *ngIf="{
+  scanResult: scanResult$ | async,
+  product: product$ | async,
+  productImage: productImage$ | async,
+  isLoading: isLoading$ | async,
+  hasError: hasError$ | async
+} as observables">
+  <ng-container *ngIf="observables.isLoading">
+    <h5>
+      <cx-icon class="fas fa-spinner fa-pulse fa-lg"></cx-icon>
+      Searching for: "{{observables.scanResult}}"
+    </h5>
+  </ng-container>
+  <ng-container *ngIf="observables.hasError">
+    <h5 class="error">
+      <cx-icon class="fas fa-exclamation-triangle fa-lg"></cx-icon>
+      Product with code "{{observables.scanResult}}" was not found
+    </h5>
+  </ng-container>
+  <ng-container *ngIf="observables.product">
+    <h5>Search result for "{{observables.scanResult}}":</h5>
+    <a [routerLink]="observables.product| cxProductUrl" cxModal="close" class="product">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+          <cx-media
+            *ngIf="observables.productImage"
+            [container]="observables.productImage"
+            format="thumbnail"
+            role="presentation"
+          ></cx-media>
+          </div>
+          <div class="col-9">
+            <span class="name" [innerHTML]="observables.product.nameHtml"></span>
+            <span class="price">{{ observables.product.price?.formattedValue }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </ng-container>
+</ng-container>
+

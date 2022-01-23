@@ -1,0 +1,5 @@
+<h5>Barcode:</h5>
+<ng-container *ngIf="barcodeValue$ | async as barcodeValue">
+  <ngx-barcode [bc-value]="barcodeValue" [bc-height]="50" [bc-margin-left]="0"></ngx-barcode>
+</ng-container>
+<cx-product-intro></cx-product-intro>

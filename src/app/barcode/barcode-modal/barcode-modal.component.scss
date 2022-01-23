@@ -1,0 +1,29 @@
+:host {
+  padding: 1em;
+}
+.product {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  padding: 0.5em 0;
+
+  &:hover {
+    background: var(--cx-color-light);
+  }
+  .name,.price {
+    display: block;
+  }
+  .name {
+    text-overflow: ellipsis;
+    font-size: inherit;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+h5 {
+  color: var(--cx-color-secondary)
+}
+h5.error {
+  color: var(--cx-color-primary)
+}

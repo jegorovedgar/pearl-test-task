@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchBoxComponent } from './search-box.component';
 import { ConfigModule,  } from '@spartacus/core';
-import { SearchBoxModule as CxSearchBoxModule } from '@spartacus/storefront';
+import { IconModule, SearchBoxModule as CxSearchBoxModule } from '@spartacus/storefront';
 import { BarcodeModule } from '../barcode/barcode.module';
-
-
 
 @NgModule({
   declarations: [
@@ -15,6 +13,7 @@ import { BarcodeModule } from '../barcode/barcode.module';
     CommonModule,
     CxSearchBoxModule,
     BarcodeModule,
+    IconModule,
     ConfigModule.withConfig({
       cmsComponents: {
         SearchBoxComponent: {

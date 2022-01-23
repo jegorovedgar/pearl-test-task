@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ImageGroup, ImageType, Product, ProductScope, ProductService } from '@spartacus/core';
 import { BarcodeFormat } from '@zxing/library';
 import { Observable, Subject } from 'rxjs';
@@ -7,7 +7,8 @@ import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-barcode-modal',
   templateUrl: './barcode-modal.component.html',
-  styleUrls: ['./barcode-modal.component.scss']
+  styleUrls: ['./barcode-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BarcodeModalComponent {
   public scanResult$: Observable<string>;
@@ -24,7 +25,7 @@ export class BarcodeModalComponent {
       switchMap((scanResult) => this.productService.get(scanResult, this.scope)),
     );
     this.productImage$ = this.product$.pipe(
-      map((product) => product.images?.[ImageType.PRIMARY]),
+      map((product) => product?.images?.[ImageType.PRIMARY]),
       map((group) => Array.isArray(group) ? group[0] : group)
     )
     this.isLoading$ = this.scanResult$.pipe(

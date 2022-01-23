@@ -13,5 +13,4 @@ export class BarcodeModalDirective {
     event.preventDefault()
     this.modalService.open(BarcodeModalComponent)
   }
-
 }

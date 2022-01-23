@@ -1,0 +1,10 @@
+.barcode-button {
+  all: unset;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 0 0.4em;
+
+  &:hover {
+    color: var(--cx-color-primary);
+  }
+}

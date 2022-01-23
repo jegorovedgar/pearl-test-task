@@ -52,6 +52,7 @@
     "express": "^4.15.2",
     "i18next": "^20.2.2",
     "i18next-http-backend": "^1.2.2",
+    "ngx-barcode": "^0.3.0",
     "ngx-infinite-scroll": "^8.0.0",
     "rxjs": "~6.6.0",
     "ts-loader": "^6.0.4",

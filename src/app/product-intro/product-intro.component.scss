@@ -1,0 +1,6 @@
+@import "~@spartacus/styles/scss/cxbase/mixins";
+@import "~@spartacus/styles/scss/components/product/details/product-intro";
+
+:host {
+  @extend %cx-product-intro;
+}

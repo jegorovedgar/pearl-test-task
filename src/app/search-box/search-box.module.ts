@@ -18,7 +18,7 @@ import { BarcodeModule } from '../barcode/barcode.module';
       cmsComponents: {
         SearchBoxComponent: {
           component: SearchBoxComponent
-        }
+        },
       }
     })
   ]

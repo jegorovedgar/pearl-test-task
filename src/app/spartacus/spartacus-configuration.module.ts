@@ -11,6 +11,11 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
     backend: {
       occ: {
         baseUrl: 'https://spartacus-demo.eastus.cloudapp.azure.com:8443/',
+        endpoints: {
+          product: {
+            list: 'products/${productCode}?fields=code,name,summary,price(formattedValue),images(DEFAULT,galleryIndex),averageRating',
+          }
+        }
       }
     },
   }), provideConfig(<SiteContextConfig>{

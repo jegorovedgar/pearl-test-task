@@ -1,0 +1,5 @@
+@import "~@spartacus/styles/scss/cxbase/mixins";
+@import "~@spartacus/styles/scss/components/product/carousel/product-carousel";
+:host {
+    @extend %cx-product-carousel;
+}

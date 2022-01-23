@@ -5,6 +5,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { AppRoutingModule } from "@spartacus/storefront";
 import { AppComponent } from './app.component';
+import { ProductCarouselModule } from "./product-carousel/product-carousel.module";
 import { ProductIntroModule } from "./product-intro/product-intro.module";
 import { SearchBoxModule } from "./search-box/search-box.module";
 import { SpartacusModule } from './spartacus/spartacus.module';
@@ -23,6 +24,7 @@ import { SpartacusModule } from './spartacus/spartacus.module';
     BrowserTransferStateModule,
     SearchBoxModule,
     ProductIntroModule,
+    ProductCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

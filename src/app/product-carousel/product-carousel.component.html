@@ -1,0 +1,34 @@
+<ng-container *ngIf="{
+  items: items$ | async,
+  title: title$ | async
+} as observables">
+  <cx-carousel
+    role="region"
+    [attr.aria-label]="
+      'productCarousel.carouselLabel' | cxTranslate: { title: observables.title }
+    "
+    [items]="observables.items || []"
+    [title]="observables.title || ''"
+    [template]="carouselItem"
+    itemWidth="285px"
+  >
+  </cx-carousel>
+
+  <ng-template #carouselItem let-item="item">
+    <a tabindex="0" [routerLink]="item | cxProductUrl">
+      <cx-media
+        [container]="item.images?.PRIMARY"
+        format="product"
+        [alt]="item.name"
+      ></cx-media>
+      <h3>
+        {{ item.name }}
+      </h3>
+      <cx-star-rating [rating]="item.averageRating" [disabled]="true"></cx-star-rating>
+      <div class="price">
+        {{ item.price?.formattedValue }}
+      </div>
+    </a>
+  </ng-template>
+</ng-container>
+
